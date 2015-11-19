@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="myTodo">
+
+<head>
+    <title>Todo</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Bill Guo">
+    <meta name="keywords" content="todo app">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/xeditable.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://github.com/iFun/iFun.github.io/blob/master/images/iconkey.jpg?raw=true">
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.4.7/angular.min.js"></script>
+    <script type="text/javascript" src="js/xeditable.min.js"></script>
+    <script type="text/javascript" src="js/myjs.js"></script>
+
+    <link href="css/mycss.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>todos</h1>
+    <div id="container" ng-controller="headerController">
+        <input id="new-todo" placeholder="What needs to be done?" autofocus ng-model="newtodo" ng-keyup="enterTodo($event)">
+        <ul ng-controller="OnaftersaveCtrl" ng-repeat="x in todoarray track by $index" ng-if="x.Text" id="todo-list">
+            <div class="checkbox">
+                <input class="toggle" type="checkbox" ng-init="initcheckbox($index)" ng-model="checkboxmodel" ng-change="checkboxchange($index)">
+            </div>
+            <li onaftersave="update(x.Text,$index)" editable-text="x.Text" buttons="no" ng-class="{strike: checkboxmodel}">
+                {{x.Text}}
+            </li>
+            <div class="delete" ng-controller="headerController">
+                <button type="button" class="btn" ng-model="deletebuttonmodel" ng-click="deleteclick($index);x.Text = ''">X</button>
+            </div>
+
+        </ul>
+        <div class="footer"></div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6-offset-6 credit">
+            <h5>Built with <i class="glyphicon glyphicon-heart"></i> by Bill Guo</h5>
+        </div>
+
+</body>
+
+</html>
