@@ -65,10 +65,9 @@ myTodo.controller('OnaftersaveCtrl', function ($scope) {
 
 myTodo.controller('headerController', ['$scope', '$filter', function ($scope, $filter) {
     $scope.todoarray = [{}];
-
     $scope.count = 0;
     getAlltodo();
-    console.log("length is " + $scope.todoarray.length);
+
 
     $scope.deleteclick = function (index) {
         console.log("index is:" + index);
@@ -110,7 +109,6 @@ myTodo.controller('headerController', ['$scope', '$filter', function ($scope, $f
         var retrievedObject;
         var result;
         var numbers = localStorage.getItem("count");
-        console.log(numbers);
         if (numbers < 100) {
             for (i = 1; i <= numbers; i++) {
                 retrievedObject = localStorage.getItem(i);
@@ -120,14 +118,16 @@ myTodo.controller('headerController', ['$scope', '$filter', function ($scope, $f
                 flag = true;
             }
         }
-        console.log("flag is " + flag);
         if (flag === false) {
             $scope.count = 0;
             localStorage.setItem("count", 0);
         }
     }
 
-    function reset() {
-        localStorage.setItem("count", 0);
+    $scope.reset = function () {
+        localStorage.clear();
+        $scope.count = 0;
+        $scope.todoarray = null;
+        location.reload();
     }
 }]);
