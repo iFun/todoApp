@@ -6,6 +6,7 @@ A simple todo web app built with anguarjs
 2. Delete todo task
 3. Achive todo task
 4. Tasks are saved in localstorage 
+5. Clear all todo task from list and localstorage
 
 [Live Demo](https://www.billguocheng.com/todo)
 
