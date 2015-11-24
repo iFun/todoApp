@@ -35,11 +35,10 @@ h1 {
 #container {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
     background: #fff;
-    margin: 130px 0 40px 0;
+    margin: 130px 0 140px 30px;
     min-width: 500px;
     min-height: 100px;
     position: absolute;
-    left: 60vh;
 }
 
 #new-todo {
